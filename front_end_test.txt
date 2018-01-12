@@ -1,0 +1,14 @@
+
+
+New/Mode Coding Test: Voting System
+
+Task:
+Using HTML, CSS, SASS, JavaScript or jQuery create a static web page that gives the user the ability to choose between the five candidates found in the attached CSV file.  When a candidate is selected, reveal the biographical information of that candidate alongside a call to action that encourages the user to vote.  Once a user has voted, they should see a message thanking them for voting.
+
+Design, usability and accessibility are key to this exercise and can be tackled as you see fit.
+
+Questions:
+Contact andrew@newmode.net (514.835.6664) 
+
+Deliverables: 
+A git repository (zipped, tar-balled or on github) containing all files necessaty to load the application localy using a browser.
