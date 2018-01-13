@@ -1,3 +1,3 @@
 const title = $('.title')
 
-title.addClass('green')
+// title.addClass('green')
