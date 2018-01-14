@@ -5,7 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-  <script defer type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script defer
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+  <script defer src="candidate-data.js"></script>
   <script defer src="index.js"></script>
   <title>Voting System</title>
 </head>
@@ -13,23 +21,33 @@
 <body>
   <header>
     <div class="banner">
-      <h1 class="title">Voting System</h1>
+      <h1 class="title">City Council Election</h1>
     </div>
   </header>
 
   <main>
+
+
       <div class="container">
-        <p>
-          Get to know your candidates.
+        <p class="greeting">
+          Get to know your candidates for city council. To view a bio or cast a vote, click on a candidate.
         </p>
 
+        <div class="candidate-grid">
 
+
+        </div>
 
 
       </div>
+    </div>
+
   </main>
 
+
   <footer class="footer">
+
+
       <p>
         contact
       </p>
