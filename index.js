@@ -2,9 +2,8 @@ const $candidateGrid = $('.candidate-grid');
 let bioShowing = 0;
 renderCandidates(candidateData);
 
-//takes in an array of candidate objects from candidat-data.js
+//takes in an array of candidate objects from candidate-data.js
 function renderCandidates(candidates){
-  //this function could be updated to adjust programmatically for an unknown number of candidates
   for (let i = 0; i < candidates.length; i++){
     const candidate = createCandidate(candidates[i]);
     $candidateGrid.append(candidate);
@@ -17,7 +16,7 @@ function createCandidate(candidateData){
 
   const candidateId = 'candidate' + id;
   const candidateName = first_name + " " + last_name;
-  const altText = `Photo of ${candidateName}`;
+  const altText = 'Photo of ' + candidateName;
 
   const $candidateDiv = $('<div>').addClass('candidate').attr('id', candidateId);
   const $innerDiv = $('<div>').addClass('clickable');
@@ -34,7 +33,7 @@ function createCandidate(candidateData){
       });
   const $infoDiv = $('<div>').addClass('candidateInfo');
   const $nameDiv = $('<div>').addClass('name').text(candidateName);
-  const $detailsDiv = $('<div>').addClass('affiliations').text(`${electoral_district} | ${party}`);
+  const $detailsDiv = $('<div>').addClass('affiliations').text(electoral_district + "|" + party);
 
   $imageDiv.append($image);
   $infoDiv.append($nameDiv).append($detailsDiv);
