@@ -3,13 +3,13 @@ const $candidateGrid = $('.candidate-grid')
 
 renderCandidates(candidateData)
 
+//takes in an array of candidate objects from candidat-data.js
 function renderCandidates(candidates){
   //this function could be updated to adjust programmatically for an unknown number of candidates
   for (let i = 0; i < candidates.length; i++){
     const candidate = createCandidate(candidates[i])
     $candidateGrid.append(candidate)
   }
-  //could create a hashmap here to keep track of who someone has voted for; vote button would be disabledfor that candidate on future clicks (maybe with a tooltip ("you've already voted for XXX"))
 }
 
 //takes in a candidate object
@@ -19,7 +19,6 @@ function createCandidate(candidateData){
   const candidateId = 'candidate' + id;
   const candidateName = first_name + " " + last_name
   const altText = `Photo of ${candidateName}`;
-
 
   const $candidateDiv = $('<div>').addClass('candidate').attr('id', candidateId)
   const $innerDiv = $('<div>').addClass('clickable')
@@ -69,6 +68,30 @@ function addVoteButton(id){
   $candidateDiv.append($voteButton)
 }
 
+function attachVoteListener(button, id){
+  const candidate = candidateData[id - 1]
+
+  //create confirmation modal
+  const $confirmationModal = $('<div>').addClass('modal').attr('id', 'confirmation')
+  const $confirmationContent = $('<div>').addClass('modal-content')
+  const $closeButton = $('<span>').addClass('close').html('&times;')
+  const $confirmationHeading = $('<h3>').addClass('confirmationHeading').text('Thanks!')
+  const $confirmationMessage = $('<p>').text('Thank you for voting for ' + candidate.first_name + " " + candidate.last_name + '.')
+
+  $confirmationContent.append($closeButton).append($confirmationHeading).append($confirmationMessage)
+  $confirmationModal.append($confirmationContent)
+  $candidateGrid.append($confirmationModal)
+
+  $(button).on('click', function(event) {
+    event.preventDefault();
+    $('#confirmation').css('display', 'block')
+  })
+
+  $closeButton.on('click', function(event) {
+      $('#confirmation').remove()
+  })
+}
+
 $('.clickable').on('click', function(event) {
   event.preventDefault();
   const candidate = $(this).parent().attr('id')
@@ -90,17 +113,3 @@ $('.clickable').on('click', function(event) {
     bioShowing = 0;
   }
 })
-
-function attachVoteListener(button, id){
-  const candidate = candidateData[id - 1]
-
-
-  $(button).on('click', function(event) {
-    event.preventDefault();
-
-    alert('Thank you for voting for ' + candidate.first_name + " " + candidate.last_name + '.')
-
-    //update hashmap to say this person has been voted for
-
-  })
-}
