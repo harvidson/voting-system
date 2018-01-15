@@ -74,11 +74,13 @@ function attachVoteListener(button, id){
   //create confirmation modal
   const $confirmationModal = $('<div>').addClass('modal').attr('id', 'confirmation')
   const $confirmationContent = $('<div>').addClass('modal-content')
+  const $modalBanner = $('<div>').addClass('modal-banner')
   const $closeButton = $('<span>').addClass('close').html('&times;')
-  const $confirmationHeading = $('<h3>').addClass('confirmationHeading').text('Thanks!')
-  const $confirmationMessage = $('<p>').text('Thank you for voting for ' + candidate.first_name + " " + candidate.last_name + '.')
+  const $confirmationHeading = $('<h3>').addClass('confirmation-heading').text('Thanks!')
+  const $confirmationMessage = $('<p>').addClass('confirmation-message').text('Thank you for voting for ' + candidate.first_name + " " + candidate.last_name + '.')
 
-  $confirmationContent.append($closeButton).append($confirmationHeading).append($confirmationMessage)
+  $modalBanner.append($closeButton)
+  $confirmationContent.append($modalBanner).append($confirmationHeading).append($confirmationMessage)
   $confirmationModal.append($confirmationContent)
   $candidateGrid.append($confirmationModal)
 

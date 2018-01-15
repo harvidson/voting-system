@@ -5,17 +5,15 @@ html {
 body {
   margin: 0;
   font-family: "Trebuchet MS", sans-serif;
-
   min-height: 100%;
   display: grid;
-  grid-template-rows: 20% 1fr auto ;
-
+  grid-template-rows: 20% 1fr auto;
 }
 
-h1 {
+.title {
   color: white;
   font-size: 4rem;
-
+  display: inline-block;
 }
 
 .greeting {
@@ -30,20 +28,11 @@ h1 {
   background: -o-linear-gradient(left, #497678, #9ac0ba);
   background: linear-gradient(to right, #497678, #9ac0ba);
   margin: 0;
-  padding: 4em;
+  padding: 3em;
   border-bottom: 0.5em solid #9AC0BA;
 
   grid-row-start: 1;
   grid-row-end: span 1;
-}
-
-.footer {
-  background: #497678;
-  color: white;
-  margin: 0;
-  border-top: 0.5em solid #9AC0BA;
-
-  grid-row-start: 3;
 }
 
 .container {
@@ -61,17 +50,52 @@ h1 {
   grid-template-areas:
     "candidate1 bio1 . candidate2 bio2"
     "candidate3 bio3 . candidate4 bio4"
-    "candidate5 bio5 . candidate6 bio6"
-    "candidate7 bio7 . candidate8 bio8";
+    "candidate5 bio5 . . . ";
+}
 
+#candidate1 {
+  grid-area: candidate1;
+}
+
+#bio1 {
+  grid-area: bio1;
+}
+
+#candidate2 {
+  grid-area: candidate2;
+}
+
+#bio2 {
+  grid-area: bio2;
+}
+
+#candidate3 {
+  grid-area: candidate3;
+}
+
+#bio3 {
+  grid-area: bio3;
+}
+
+#candidate4 {
+  grid-area: candidate4;
+}
+
+#bio4 {
+  grid-area: bio4;
+}
+
+#candidate5 {
+  grid-area: candidate5;
+}
+
+#bio5 {
+  grid-area: bio5;
 }
 
 .candidate {
   text-align: center;
   margin-top: 3rem;
-}
-
-.candidateDetails {
 }
 
 .link {
@@ -91,12 +115,14 @@ h1 {
   padding: 0 0 20px 20px;
 }
 
-.bioHeading, .confirmationHeading {
+.bioHeading, .confirmation-heading {
   color: #D93E42;
   font-size: 1.5rem;
   font-weight: 600;
-  margin-top: 3rem;
+}
 
+.bioHeading {
+  margin-top: 3rem;
 }
 
 .vote {
@@ -113,48 +139,20 @@ h1 {
 .vote:hover {
   transform: scale( 1.1 );
   cursor: pointer;
-
-  /*opacity: .5;*/
-  /*transition: opacity .15s ease-in;*/
 }
 
-#candidate1 {
-  grid-area: candidate1;
-}
-#bio1 {
-  grid-area: bio1;
-}
-#candidate2 {
-  grid-area: candidate2;
-}
-#bio2 {
-  grid-area: bio2;
-}
-#candidate3 {
-  grid-area: candidate3;
-}
-#bio3 {
-  grid-area: bio3;
-}
-#candidate4 {
-  grid-area: candidate4;
-}
-#bio4 {
-  grid-area: bio4;
-}
-#candidate5 {
-  grid-area: candidate5;
-}
-#bio5 {
-  grid-area: bio5;
+.modal-banner {
+  background-color: #497678;
+  min-height: 2.5rem;
+  border-bottom: 0.25em solid #9AC0BA;
 }
 
-/* The Modal (background) */
+/* Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 15%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -168,17 +166,25 @@ h1 {
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
     border: 1px solid #888;
     width: 30%;
 }
 
-/* The Close Button */
+.confirmation-heading {
+  padding: 0 20px;
+}
+
+.confirmation-message {
+  padding: 0 20px;
+}
+
+/*  Close Button */
 .close {
-    color: #aaaaaa;
+    color: #fff;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    padding: .25em;
 }
 
 .close:hover,
@@ -186,4 +192,38 @@ h1 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+    transform: scale( 1.1 );
+}
+
+.footer {
+  background: #497678;
+  color: white;
+  margin: 0;
+  border-top: 0.5em solid #9AC0BA;
+  grid-row-start: 3;
+  padding: 0 3em;
+}
+
+footer li {
+  list-style-type: none;
+}
+
+footer .link{
+  color: white;
+}
+
+.resources {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1Fr 1Fr 1Fr;
+  grid-gap: 10px;
+  justify-items: center;
+}
+
+#council, #social, #copywright {
+  align-items: right;
+}
+
+.logos {
+  padding-right: 5px;
 }
