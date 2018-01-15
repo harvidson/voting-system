@@ -143,7 +143,7 @@ body {
 
 .modal-banner {
   background-color: #497678;
-  min-height: 2.5rem;
+  min-height: 3rem;
   border-bottom: 0.25em solid #9AC0BA;
 }
 
@@ -182,9 +182,9 @@ body {
 .close {
     color: #fff;
     float: right;
-    font-size: 28px;
+    font-size: 48px;
     font-weight: bold;
-    padding: .25em;
+    padding-right: .25em;
 }
 
 .close:hover,
